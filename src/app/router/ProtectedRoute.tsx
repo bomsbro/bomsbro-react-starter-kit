@@ -1,18 +1,15 @@
 import { Navigate, Outlet } from 'react-router'
 
-import { ROUTES } from '@core/constants/routes.constants'
+import { ROUTE_PATH } from '@core/constants/routes.constants'
 
 // TODO: 실제 인증 상태는 authStore에서 가져와야 함
-const useAuth = () => 
-  // 임시로 false 반환
-   ({ isAuthenticated: false })
-
+const useAuth = () => ({ isAuthenticated: false })
 
 export const ProtectedRoute = () => {
   const { isAuthenticated } = useAuth()
 
   if (!isAuthenticated) {
-    return <Navigate to={ROUTES.LOGIN} replace />
+    return <Navigate to={ROUTE_PATH.LOGIN} replace />
   }
 
   return <Outlet />

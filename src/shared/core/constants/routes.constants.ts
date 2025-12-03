@@ -1,11 +1,13 @@
-export const ROUTES = {
+// 라우트 경로 (path만)
+export const ROUTE_PATH = {
   HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
   MY_PAGE: '/mypage',
-  USER_DETAIL: (userId: string) => `/user/${userId}`,
+  NOT_FOUND: '/404',
 } as const
 
+// API 엔드포인트
 export const API_ENDPOINTS = {
   AUTH: {
     LOGIN: '/auth/login',
@@ -19,4 +21,3 @@ export const API_ENDPOINTS = {
     DETAIL: (id: string) => `/users/${id}`,
   },
 } as const
-
