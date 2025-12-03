@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+build
+
+# Generated files
+.vite
+.turbo
+
+# Lock files
+pnpm-lock.yaml
+
+# Misc
+.DS_Store
+*.log
+
