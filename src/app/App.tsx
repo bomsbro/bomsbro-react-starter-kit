@@ -1,4 +1,4 @@
-import reactLogo from '@/shared/ui/assets/react.svg'
+import reactLogo from '@ui/assets/react.svg'
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
 
