@@ -1,15 +1,14 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router'
 
-import { Layout } from '@ui/components/layout/Layout'
-import { HomePage } from '@features/home/pages/HomePage'
+import { ROUTES } from '@core/constants/routes.constants'
 import { LoginPage } from '@features/auth/pages/LoginPage'
 import { RegisterPage } from '@features/auth/pages/RegisterPage'
+import { HomePage } from '@features/home/pages/HomePage'
 import { MyPage } from '@features/user/pages/MyPage'
-import { ROUTES } from '@core/constants/routes.constants'
+import { Layout } from '@ui/components/layout/Layout'
 
 // 404 페이지
-function NotFoundPage() {
-  return (
+const NotFoundPage: React.FC = () => (
     <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
       <div className="text-center space-y-4">
         <h1 className="text-6xl font-bold">404</h1>
@@ -20,7 +19,6 @@ function NotFoundPage() {
       </div>
     </div>
   )
-}
 
 export const router = createBrowserRouter([
   {

@@ -1,5 +1,4 @@
-export function RegisterPage() {
-  return (
+export const RegisterPage = () => (
     <div className="max-w-md mx-auto space-y-4">
       <h1 className="text-3xl font-bold">Register</h1>
       <p className="text-muted-foreground">
@@ -8,5 +7,4 @@ export function RegisterPage() {
       {/* TODO: Add registration form */}
     </div>
   )
-}
 

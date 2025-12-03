@@ -1,15 +1,13 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface AppProvidersProps {
   children: ReactNode
 }
 
-export function AppProviders({ children }: AppProvidersProps) {
-  return (
+export const AppProviders = ({ children }: AppProvidersProps) => (
     <>
       {/* TODO: Add providers here (e.g., QueryClientProvider, ThemeProvider) */}
       {children}
     </>
   )
-}
 

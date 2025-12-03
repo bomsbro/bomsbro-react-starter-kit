@@ -1,5 +1,4 @@
-export function MyPage() {
-  return (
+export const MyPage = () => (
     <div className="space-y-4">
       <h1 className="text-3xl font-bold">My Page</h1>
       <p className="text-muted-foreground">
@@ -8,5 +7,4 @@ export function MyPage() {
       {/* TODO: Add user profile content */}
     </div>
   )
-}
 

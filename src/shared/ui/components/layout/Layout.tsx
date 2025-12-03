@@ -1,9 +1,8 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Link,Outlet } from 'react-router'
 
 import { ROUTES } from '@core/constants/routes.constants'
 
-export function Layout() {
-  return (
+export const Layout = () => (
     <div className="min-h-screen flex flex-col">
       <header className="border-b">
         <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -38,4 +37,3 @@ export function Layout() {
       </footer>
     </div>
   )
-}
