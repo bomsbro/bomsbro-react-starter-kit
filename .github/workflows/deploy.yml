@@ -1,0 +1,27 @@
+name: Deploy
+
+run-name: Deploy to ${{ inputs.environment }} - ${{ github.ref_name }}@${{ github.sha::0:7 }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo deployment info
+        run: |
+          echo "🚀 Action executed!"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "SHA: ${{ github.sha }}"
