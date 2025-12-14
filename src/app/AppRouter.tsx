@@ -1,8 +1,8 @@
-import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router';
+import { createBrowserRouter, Link, Navigate, Outlet, RouterProvider } from 'react-router';
 
-import AboutView from '@/features/about/views/AboutView';
-import BlogView from '@/features/blog/views/BlogView';
-import HomeView from '@/features/home/views/HomeView';
+import AboutView from '@/features/about/AboutView';
+import BlogView from '@/features/blog/BlogView';
+import HomeView from '@/features/home/HomeView';
 import Layout from '@/shared/ui/components/layout/Layout';
 
 const NotFoundPage = () => (
@@ -10,9 +10,9 @@ const NotFoundPage = () => (
     <div className="text-center space-y-4">
       <h1 className="text-6xl font-bold">404</h1>
       <p className="text-xl text-muted-foreground">Page Not Found</p>
-      <a href="/" className="text-primary hover:underline">
+      <Link to="/" className="text-primary hover:underline">
         Go Home
-      </a>
+      </Link>
     </div>
   </div>
 );

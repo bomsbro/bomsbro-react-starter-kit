@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import MobileDrawer from '@/shared/ui/components/atoms/MobileDrawer';
 
 interface NavLink {
@@ -16,21 +18,21 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ navLinks = defaultNavLinks }) => (
-  <nav className="bg-[#2C4E9C] text-white ">
+  <nav className="bg-[#2C4E9C] ">
     <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-8 text-white">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             className="hidden md:block text-sm font-medium tracking-wider hover:opacity-80 transition-opacity"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
       <div className="flex items-center gap-4">
-        <MobileDrawer />
+        <MobileDrawer navLinks={navLinks} />
       </div>
     </div>
   </nav>

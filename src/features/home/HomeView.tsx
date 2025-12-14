@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router';
 
 import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
 import { Button } from '@/shared/ui/components/atoms/button';
+
+import NewsTicker from './NewsTicker';
 
 const homeContents = [
   {
@@ -39,48 +42,12 @@ const homeContents = [
   },
 ];
 
-const homeCategories = ['TECHNOLOGY', 'AUTOMOTIVE', 'FINANCE', 'POLITICS', 'CULTURE', 'SPORTS'];
-
 const HomeView: React.FC = () => {
-  const { setSections } = useMobileDrawer();
+  const { clearMenuContent } = useMobileDrawer();
 
   useEffect(() => {
-    setSections([
-      {
-        id: 'blog',
-        title: 'BLOG',
-        items: homeCategories.map((category) => ({
-          label: category,
-          href: `#${category.toLowerCase()}`,
-        })),
-      },
-      {
-        id: 'about',
-        title: 'ABOUT',
-        items: [
-          {
-            label: 'FE',
-            children: [
-              { label: 'HTML,CSS 팔아요', href: '#html-css' },
-              { label: 'JavaScript 팔아요', href: '#javascript' },
-              { label: 'React.js 팔아요', href: '#reactjs' },
-              { label: 'Next.js 팔아요', href: '#nextjs' },
-            ],
-          },
-          {
-            label: 'DevOps',
-            children: [
-              { label: '네트워크 팔아요', href: '#network' },
-              { label: '홈서버 팔아요', href: '#homeserver' },
-              { label: '클라우드 팔아요', href: '#cloud' },
-              { label: 'Docker 팔아요', href: '#docker' },
-              { label: 'CICD 팔아요', href: '#cicd' },
-            ],
-          },
-        ],
-      },
-    ]);
-  }, [setSections]);
+    clearMenuContent();
+  }, [clearMenuContent]);
 
   return (
     <>
@@ -92,23 +59,8 @@ const HomeView: React.FC = () => {
         </div>
       </section>
 
-      {/* Category Navigation */}
-      <nav className="bg-[#E9ECEF] border-t border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <ul className="flex items-center justify-center gap-8 py-4 flex-wrap">
-            {homeCategories.map((category) => (
-              <li key={category}>
-                <a
-                  href={`#${category.toLowerCase()}`}
-                  className="text-sm font-semibold tracking-wide hover:text-blue-600 transition-colors"
-                >
-                  {category}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+      {/* Latest News Ticker */}
+      <NewsTicker />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -130,13 +82,13 @@ const HomeView: React.FC = () => {
                     By <span className="font-semibold text-foreground">{post.author}</span>. Published on {post.date}
                   </p>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{post.excerpt}</p>
-                  <a
-                    href={`/post/${post.id}`}
+                  <Link
+                    to={`/post/${post.id}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
                   >
                     CONTINUE READING
                     <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

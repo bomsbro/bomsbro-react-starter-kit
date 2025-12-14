@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => (
@@ -17,24 +19,24 @@ const Footer: React.FC = () => (
           <h3 className="text-lg font-bold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/shop" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/shop" className="text-white/80 hover:text-white transition-colors">
                 Shop
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/about" className="text-white/80 hover:text-white transition-colors">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/privacy" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/privacy" className="text-white/80 hover:text-white transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -68,4 +70,3 @@ const Footer: React.FC = () => (
 );
 
 export default Footer;
-

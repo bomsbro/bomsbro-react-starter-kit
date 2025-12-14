@@ -1,51 +1,27 @@
 import { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 
-export interface DrawerMenuItem {
-  label: string;
-  href?: string;
-  onClick?: () => void;
-  children?: DrawerMenuItem[];
-}
-
-export interface DrawerSection {
-  id: string;
-  title: string;
-  items: DrawerMenuItem[];
-}
-
 export interface MobileDrawerContextType {
-  sections: DrawerSection[];
-  setSections: (sections: DrawerSection[]) => void;
-  addSection: (section: DrawerSection) => void;
-  clearSections: () => void;
+  menuContent: ReactNode | null;
+  setMenuContent: (content: ReactNode | null) => void;
+  clearMenuContent: () => void;
 }
 
 const MobileDrawerContext = createContext<MobileDrawerContextType | null>(null);
 
 export const MobileDrawerProvider = ({ children }: { children: ReactNode }) => {
-  const [sections, setInternalSections] = useState<DrawerSection[]>([]);
+  const [menuContent, setMenuContentInternal] = useState<ReactNode | null>(null);
 
-  const setSections = useCallback((newSections: DrawerSection[]) => {
-    setInternalSections(newSections);
+  const setMenuContent = useCallback((content: ReactNode | null) => {
+    setMenuContentInternal(content);
   }, []);
 
-  const addSection = useCallback((section: DrawerSection) => {
-    setInternalSections((prev) => {
-      const exists = prev.some((s) => s.id === section.id);
-      if (exists) {
-        return prev.map((s) => (s.id === section.id ? section : s));
-      }
-      return [...prev, section];
-    });
-  }, []);
-
-  const clearSections = useCallback(() => {
-    setInternalSections([]);
+  const clearMenuContent = useCallback(() => {
+    setMenuContentInternal(null);
   }, []);
 
   const value = useMemo(
-    () => ({ sections, setSections, addSection, clearSections }),
-    [sections, setSections, addSection, clearSections],
+    () => ({ menuContent, setMenuContent, clearMenuContent }),
+    [menuContent, setMenuContent, clearMenuContent],
   );
 
   return <MobileDrawerContext.Provider value={value}>{children}</MobileDrawerContext.Provider>;
@@ -60,4 +36,3 @@ export const useMobileDrawer = (): MobileDrawerContextType => {
 };
 
 export default MobileDrawerContext;
-

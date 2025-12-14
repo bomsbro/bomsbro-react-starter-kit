@@ -1,71 +1,34 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 import { Button } from '@ui/components/atoms/button';
-import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import { FileText, Home, Info, Menu, X } from 'lucide-react';
 
-import { type DrawerSection, useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
+import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
 
-const MobileDrawer = () => {
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface MobileDrawerProps {
+  navLinks: NavLink[];
+}
+
+const iconMap: Record<string, React.ReactNode> = {
+  HOME: <Home className="w-4 h-4" />,
+  BLOG: <FileText className="w-4 h-4" />,
+  ABOUT: <Info className="w-4 h-4" />,
+};
+
+const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
-  const { sections } = useMobileDrawer();
+  const { menuContent } = useMobileDrawer();
 
-  const toggleSection = (sectionId: string) => {
-    setExpandedSection(expandedSection === sectionId ? null : sectionId);
-  };
-
-  const handleItemClick = (onClick?: () => void) => {
-    if (onClick) {
-      onClick();
-    }
+  const handleLinkClick = () => {
     setIsOpen(false);
   };
-
-  const renderSection = (section: DrawerSection) => (
-    <div key={section.id} className="mb-4">
-      <button
-        onClick={() => toggleSection(section.id)}
-        className="flex items-center justify-between w-full p-3 text-left font-semibold hover:bg-gray-100 rounded-lg transition-colors"
-      >
-        <span>{section.title}</span>
-        {expandedSection === section.id ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-      </button>
-      {expandedSection === section.id && (
-        <div className="ml-4 mt-2 space-y-1">
-          {section.items.map((item) => (
-            <div key={item.label}>
-              {item.children ? (
-                <div>
-                  <h3 className="font-semibold text-sm mb-2 p-2">{item.label}</h3>
-                  <div className="space-y-1">
-                    {item.children.map((child) => (
-                      <a
-                        key={child.label}
-                        href={child.href}
-                        className="block p-2 pl-4 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded transition-colors"
-                        onClick={() => handleItemClick(child.onClick)}
-                      >
-                        · {child.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <a
-                  href={item.href}
-                  className="block p-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded transition-colors"
-                  onClick={() => handleItemClick(item.onClick)}
-                >
-                  {item.label}
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
 
   return (
     <>
@@ -84,26 +47,40 @@ const MobileDrawer = () => {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 h-full w-80 bg-gray-50 shadow-xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full">
           {/* Drawer Header */}
-          <div className="flex items-center justify-between p-4 border-b">
-            <h2 className="text-xl font-bold">Menu</h2>
+          <div className="flex items-center justify-between p-4 bg-white border-b">
+            <h2 className="text-xl font-bold text-gray-800">Menu</h2>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
               <X className="w-6 h-6" />
             </Button>
           </div>
 
           {/* Drawer Content */}
-          <div className="flex-1 overflow-y-auto p-4">
-            {sections.length > 0 ? (
-              sections.map(renderSection)
-            ) : (
-              <p className="text-gray-500 text-center py-4">메뉴가 없습니다.</p>
-            )}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            {/* Apps Section - 구조화된 카드 */}
+            <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col gap-2">
+              <h3 className="text-sm font-bold text-gray-800">Apps</h3>
+              <div className="flex bg-white align-center">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="flex h-10 items-center gap-3 p-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    onClick={handleLinkClick}
+                  >
+                    {iconMap[link.label] ?? <span className="w-4 h-4" />}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* 외부에서 주입된 메뉴 컴포넌트 */}
+            {menuContent}
           </div>
         </div>
       </div>
