@@ -1,9 +1,9 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router';
 
-import { LoginPage } from '@features/auth/pages/LoginPage'
-import { RegisterPage } from '@features/auth/pages/RegisterPage'
-import { HomePage } from '@features/home/pages/HomePage'
-import { Layout } from '@ui/components/layout/Layout'
+import AboutView from '@/features/about/views/AboutView';
+import BlogView from '@/features/blog/views/BlogView';
+import HomeView from '@/features/home/views/HomeView';
+import Layout from '@/shared/ui/components/layout/Layout';
 
 const NotFoundPage = () => (
   <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
@@ -15,24 +15,30 @@ const NotFoundPage = () => (
       </a>
     </div>
   </div>
-)
+);
+
+const RootLayout = () => (
+  <Layout>
+    <Outlet />
+  </Layout>
+);
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <RootLayout />,
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <HomeView />,
       },
       {
-        path: '/login',
-        element: <LoginPage />,
+        path: '/blog',
+        element: <BlogView />,
       },
       {
-        path: '/register',
-        element: <RegisterPage />,
+        path: '/about',
+        element: <AboutView />,
       },
       {
         path: '/404',
@@ -44,6 +50,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
 
-export default () => <RouterProvider router={router} />
+export default () => <RouterProvider router={router} />;

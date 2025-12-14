@@ -1,37 +1,22 @@
-import { Link, Outlet } from 'react-router'
+import type { ReactNode } from 'react';
 
-export const Layout = () => (
-  <div className="min-h-screen flex flex-col">
-    <header className="border-b">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold">
-          Logo
-        </Link>
-        <div className="flex items-center gap-4">
-          <Link to="/" className="hover:text-primary">
-            Home
-          </Link>
-          <Link to="/login" className="hover:text-primary">
-            Login
-          </Link>
-          <Link to="/register" className="hover:text-primary">
-            Register
-          </Link>
-          <Link to="/mypage" className="hover:text-primary">
-            My Page
-          </Link>
-        </div>
-      </nav>
-    </header>
+import { MobileDrawerProvider } from '@/shared/contexts/MobileDrawerContext';
 
-    <main className="flex-1 container mx-auto px-4 py-8">
-      <Outlet />
-    </main>
+import Footer from './Footer';
+import Header from './Header';
 
-    <footer className="border-t">
-      <div className="container mx-auto px-4 py-4 text-center text-muted-foreground">
-        © 2024 My App. All rights reserved.
-      </div>
-    </footer>
-  </div>
-)
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => (
+  <MobileDrawerProvider>
+    <div className="min-h-screen bg-white flex flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+    </div>
+    <Footer />
+  </MobileDrawerProvider>
+);
+
+export default Layout;
