@@ -8,11 +8,13 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <div className="min-h-screen bg-white flex flex-col">
-    <Header />
-    <main className="flex-1">{children}</main>
+  <>
+    <div className="min-h-screen bg-white flex flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+    </div>
     <Footer />
-  </div>
+  </>
 );
 
 export default Layout;
