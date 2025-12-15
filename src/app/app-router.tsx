@@ -1,7 +1,10 @@
 import { createBrowserRouter, Link, Navigate, Outlet, RouterProvider } from 'react-router';
 
 import AboutView from '@/features/about/about-view';
-import BlogView from '@/features/blog/blog-view';
+import BlogCreateView from '@/features/blog/components/blog-create-view';
+import BlogDetailView from '@/features/blog/components/blog-detail-view';
+import BlogEditView from '@/features/blog/components/blog-edit-view';
+import BlogView from '@/features/blog/components/blog-view';
 import HomeView from '@/features/home/home-view';
 import Layout from '@/shared/ui/components/layout/layout';
 
@@ -35,6 +38,18 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <BlogView />,
+      },
+      {
+        path: '/blog/new',
+        element: <BlogCreateView />,
+      },
+      {
+        path: '/blog/:id',
+        element: <BlogDetailView />,
+      },
+      {
+        path: '/blog/:id/edit',
+        element: <BlogEditView />,
       },
       {
         path: '/about',
