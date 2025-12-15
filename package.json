@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext ts,tsx --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
+    "mock-api": "json-server --watch mock-api/db.json --port 3001"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

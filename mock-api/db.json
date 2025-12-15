@@ -1,0 +1,84 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "React 19의 새로운 기능들",
+      "content": "React 19에서는 많은 새로운 기능들이 추가되었습니다. 서버 컴포넌트, 액션, 그리고 새로운 훅들이 포함됩니다.",
+      "category": "TECHNOLOGY",
+      "author": "김개발",
+      "thumbnail": "https://picsum.photos/seed/react19/400/300",
+      "createdAt": "2024-12-15T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "2024년 자동차 산업 동향",
+      "content": "전기차 시장이 빠르게 성장하고 있으며, 자율주행 기술도 발전하고 있습니다.",
+      "category": "AUTOMOTIVE",
+      "author": "이자동차",
+      "thumbnail": "https://picsum.photos/seed/car2024/400/300",
+      "createdAt": "2024-12-14T09:00:00Z",
+      "updatedAt": "2024-12-14T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "금융 시장 전망 분석",
+      "content": "2024년 하반기 금융 시장은 금리 인하 기대와 함께 변동성이 예상됩니다.",
+      "category": "FINANCE",
+      "author": "박금융",
+      "thumbnail": "https://picsum.photos/seed/finance/400/300",
+      "createdAt": "2024-12-13T14:30:00Z",
+      "updatedAt": "2024-12-13T14:30:00Z"
+    },
+    {
+      "id": 4,
+      "title": "최신 정치 이슈 정리",
+      "content": "국내외 주요 정치 이슈들을 정리해보았습니다. 선거와 정책 변화에 대한 분석입니다.",
+      "category": "POLITICS",
+      "author": "정정치",
+      "thumbnail": "https://picsum.photos/seed/politics/400/300",
+      "createdAt": "2024-12-12T11:00:00Z",
+      "updatedAt": "2024-12-12T11:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "K-컬처의 세계적 영향력",
+      "content": "K-pop, 드라마, 영화 등 한국 문화 콘텐츠가 전 세계적으로 인기를 끌고 있습니다.",
+      "category": "CULTURE",
+      "author": "최문화",
+      "thumbnail": "https://picsum.photos/seed/kculture/400/300",
+      "createdAt": "2024-12-11T16:00:00Z",
+      "updatedAt": "2024-12-11T16:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "스포츠 하이라이트: 이번 주 경기 결과",
+      "content": "프로야구, 축구, 농구 등 주요 스포츠 경기 결과를 정리했습니다.",
+      "category": "SPORTS",
+      "author": "강스포츠",
+      "thumbnail": "https://picsum.photos/seed/sports/400/300",
+      "createdAt": "2024-12-10T20:00:00Z",
+      "updatedAt": "2024-12-10T20:00:00Z"
+    },
+    {
+      "id": 7,
+      "title": "TypeScript 5.0 마이그레이션 가이드",
+      "content": "TypeScript 5.0으로 마이그레이션하는 방법과 주의사항을 알아봅니다.",
+      "category": "TECHNOLOGY",
+      "author": "김개발",
+      "thumbnail": "https://picsum.photos/seed/typescript/400/300",
+      "createdAt": "2024-12-09T08:00:00Z",
+      "updatedAt": "2024-12-09T08:00:00Z"
+    },
+    {
+      "id": 8,
+      "title": "2024 서울 맛집 TOP 10",
+      "content": "서울에서 꼭 가봐야 할 맛집 10곳을 소개합니다. 한식부터 양식까지 다양하게 준비했습니다.",
+      "category": "CULTURE",
+      "author": "최문화",
+      "thumbnail": "https://picsum.photos/seed/food/400/300",
+      "createdAt": "2024-12-08T12:00:00Z",
+      "updatedAt": "2024-12-08T12:00:00Z"
+    }
+  ]
+}
