@@ -1,9 +1,9 @@
 import { createBrowserRouter, Link, Navigate, Outlet, RouterProvider } from 'react-router';
 
-import AboutView from '@/features/about/AboutView';
-import BlogView from '@/features/blog/BlogView';
-import HomeView from '@/features/home/HomeView';
-import Layout from '@/shared/ui/components/layout/Layout';
+import AboutView from '@/features/about/about-view';
+import BlogView from '@/features/blog/blog-view';
+import HomeView from '@/features/home/home-view';
+import Layout from '@/shared/ui/components/layout/layout';
 
 const NotFoundPage = () => (
   <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">

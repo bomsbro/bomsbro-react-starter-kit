@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 import { Button } from '@/shared/ui/components/atoms/button';
 
-import NewsTicker from './NewsTicker';
+import NewsTicker from './news-ticker';
 
 const homeContents = [
   {

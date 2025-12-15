@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import MobileDrawer from '@ui/components/atoms/MobileDrawer';
+import MobileDrawer from '@ui/components/atoms/mobile-drawer';
 
 interface NavLink {
   label: string;
