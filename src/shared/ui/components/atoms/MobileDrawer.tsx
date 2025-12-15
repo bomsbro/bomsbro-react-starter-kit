@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 import { Button } from '@ui/components/atoms/button';
 import { FileText, Home, Info, Menu, X } from 'lucide-react';
 
-import { useMobileDrawer } from './useMobileDrawer';
-
 interface NavLink {
   label: string;
   href: string;
@@ -23,7 +21,6 @@ const iconMap: Record<string, ReactNode> = {
 
 export const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { menuContent } = useMobileDrawer();
 
   const handleLinkClick = () => {
     setIsOpen(false);
@@ -78,12 +75,10 @@ export const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
               </div>
             </div>
 
-            {/* 외부에서 주입된 메뉴 컴포넌트 */}
-            {menuContent}
+            {/* TODO 외부에서 주입된 메뉴 컴포넌트 */}
           </div>
         </div>
       </div>
     </>
   );
 };
-
