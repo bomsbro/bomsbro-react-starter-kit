@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router';
 
 import { ArrowLeft, Edit, Trash2 } from 'lucide-react';
 
-import { useBlogQuery, useDeleteBlogMutation } from '../hooks/use-blog-queries';
+import { useBlogQuery, useDeleteBlogMutation } from '../../hooks/use-blog-queries';
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);

@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router';
 import type { BlogRequest } from '@core/api';
 import { ArrowLeft } from 'lucide-react';
 
-import { useBlogQuery, useUpdateBlogMutation } from '../hooks/use-blog-queries';
-import BlogForm from './blog-form';
+import { useBlogQuery, useUpdateBlogMutation } from '../../hooks/use-blog-queries';
+import BlogForm from '../blog-form';
 
 const BlogEditView = () => {
   const { id } = useParams<{ id: string }>();

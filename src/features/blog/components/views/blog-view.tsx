@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 import { Plus } from 'lucide-react';
 
-import { useBlogsQuery } from '../hooks/use-blog-queries';
-import BlogList from './blog-list';
+import { useBlogsQuery } from '../../hooks/use-blog-queries';
+import BlogList from '../blog-list';
 
 const CATEGORIES = ['ALL', 'TECHNOLOGY', 'AUTOMOTIVE', 'FINANCE', 'POLITICS', 'CULTURE', 'SPORTS'];
 const ITEMS_PER_PAGE = 10;

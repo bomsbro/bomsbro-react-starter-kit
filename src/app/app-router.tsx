@@ -1,10 +1,10 @@
 import { createBrowserRouter, Link, Navigate, Outlet, RouterProvider } from 'react-router';
 
 import AboutView from '@/features/about/about-view';
-import BlogCreateView from '@/features/blog/components/blog-create-view';
-import BlogDetailView from '@/features/blog/components/blog-detail-view';
-import BlogEditView from '@/features/blog/components/blog-edit-view';
-import BlogView from '@/features/blog/components/blog-view';
+import BlogCreateView from '@/features/blog/components/views/blog-create-view';
+import BlogDetailView from '@/features/blog/components/views/blog-detail-view';
+import BlogEditView from '@/features/blog/components/views/blog-edit-view';
+import BlogView from '@/features/blog/components/views/blog-view';
 import HomeView from '@/features/home/home-view';
 import Layout from '@/shared/ui/components/layout/layout';
 

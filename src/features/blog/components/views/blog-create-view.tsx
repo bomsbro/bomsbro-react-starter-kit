@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 import type { BlogRequest } from '@core/api';
 import { ArrowLeft } from 'lucide-react';
 
-import { useCreateBlogMutation } from '../hooks/use-blog-queries';
-import BlogForm from './blog-form';
+import { useCreateBlogMutation } from '../../hooks/use-blog-queries';
+import BlogForm from '../blog-form';
 
 const BlogCreateView = () => {
   const navigate = useNavigate();
