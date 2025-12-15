@@ -19,7 +19,7 @@ const iconMap: Record<string, ReactNode> = {
   ABOUT: <Info className="w-4 h-4" />,
 };
 
-export const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
+const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLinkClick = () => {
@@ -82,3 +82,5 @@ export const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
     </>
   );
 };
+
+export default MobileDrawer;

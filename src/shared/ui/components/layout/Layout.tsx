@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
 
-import { MobileDrawerProvider } from '@ui/components/atoms/MobileDrawer';
-
 import Footer from './Footer';
 import Header from './Header';
 
@@ -10,13 +8,11 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <MobileDrawerProvider>
-    <div className="min-h-screen bg-white flex flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-    </div>
+  <div className="min-h-screen bg-white flex flex-col">
+    <Header />
+    <main className="flex-1">{children}</main>
     <Footer />
-  </MobileDrawerProvider>
+  </div>
 );
 
 export default Layout;
