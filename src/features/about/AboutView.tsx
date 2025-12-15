@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
+import { useMobileDrawer } from '@ui/components/atoms/MobileDrawer';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-
-import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
 
 // About 전용 모바일 메뉴 컴포넌트
 const AboutMobileMenu = () => {

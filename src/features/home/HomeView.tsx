@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router';
 
-import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
+import { useMobileDrawer } from '@ui/components/atoms/MobileDrawer';
+
 import { Button } from '@/shared/ui/components/atoms/button';
 
 import NewsTicker from './NewsTicker';

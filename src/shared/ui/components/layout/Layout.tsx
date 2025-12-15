@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { MobileDrawerProvider } from '@/shared/contexts/MobileDrawerContext';
+import { MobileDrawerProvider } from '@ui/components/atoms/MobileDrawer';
 
 import Footer from './Footer';
 import Header from './Header';

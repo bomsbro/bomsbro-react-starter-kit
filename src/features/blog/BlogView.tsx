@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
-import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
+import { useMobileDrawer } from '@ui/components/atoms/MobileDrawer';
 
 const homeCategories = ['TECHNOLOGY', 'AUTOMOTIVE', 'FINANCE', 'POLITICS', 'CULTURE', 'SPORTS'];
 

@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import { Link } from 'react-router';
 
 import { Button } from '@ui/components/atoms/button';
 import { FileText, Home, Info, Menu, X } from 'lucide-react';
 
-import { useMobileDrawer } from '@/shared/contexts/MobileDrawerContext';
+import { useMobileDrawer } from './useMobileDrawer';
 
 interface NavLink {
   label: string;
@@ -15,15 +15,14 @@ interface MobileDrawerProps {
   navLinks: NavLink[];
 }
 
-const iconMap: Record<string, React.ReactNode> = {
+const iconMap: Record<string, ReactNode> = {
   HOME: <Home className="w-4 h-4" />,
   BLOG: <FileText className="w-4 h-4" />,
   ABOUT: <Info className="w-4 h-4" />,
 };
 
-const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
+export const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const { menuContent } = useMobileDrawer();
 
   const handleLinkClick = () => {
@@ -62,7 +61,7 @@ const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
 
           {/* Drawer Content */}
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {/* Apps Section - 구조화된 카드 */}
+            {/* Apps Section */}
             <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col gap-2">
               <h3 className="text-sm font-bold text-gray-800">Apps</h3>
               <div className="flex bg-white align-center">
@@ -88,4 +87,3 @@ const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
   );
 };
 
-export default MobileDrawer;
