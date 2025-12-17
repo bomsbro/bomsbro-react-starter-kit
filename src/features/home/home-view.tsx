@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
 
+import { Badge } from '@/shared/ui/components/atoms/badge';
 import { Button } from '@/shared/ui/components/atoms/button';
+import { Card, CardContent } from '@/shared/ui/components/atoms/card';
 
 import NewsTicker from './news-ticker';
 
@@ -8,7 +10,6 @@ const homeContents = [
   {
     id: 1,
     category: 'TECHNOLOGY',
-    categoryColor: 'text-blue-600',
     title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
     author: 'David Grzyb',
     date: 'April 25th, 2020',
@@ -19,7 +20,6 @@ const homeContents = [
   {
     id: 2,
     category: 'AUTOMOTIVE, FINANCE',
-    categoryColor: 'text-blue-600',
     title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
     author: 'David Grzyb',
     date: 'January 12th, 2020',
@@ -30,7 +30,6 @@ const homeContents = [
   {
     id: 3,
     category: 'SPORTS',
-    categoryColor: 'text-blue-600',
     title: 'Lorem Ipsum Dolor Sit Amet Dolor Sit Amet',
     author: 'David Grzyb',
     date: 'March 8th, 2020',
@@ -59,59 +58,60 @@ const HomeView: React.FC = () => (
         {/* Blog Posts */}
         <div className="lg:col-span-2 space-y-8">
           {homeContents.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
+            <Card key={post.id} className="overflow-hidden py-0 hover:shadow-md transition-shadow">
               <img src={post.image || '/placeholder.svg'} alt={post.title} className="w-full h-64 object-cover" />
-              <div className="p-6">
+              <CardContent className="p-6">
                 <div className="mb-4">
-                  <span className={`text-xs font-bold tracking-wider ${post.categoryColor}`}>{post.category}</span>
+                  <Badge variant="secondary" className="text-xs font-bold tracking-wider text-blue-600">
+                    {post.category}
+                  </Badge>
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-balance">{post.title}</h2>
                 <p className="text-sm text-muted-foreground mb-4">
                   By <span className="font-semibold text-foreground">{post.author}</span>. Published on {post.date}
                 </p>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{post.excerpt}</p>
-                <Link
-                  to={`/post/${post.id}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
-                >
-                  CONTINUE READING
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
+                <Button variant="link" className="p-0 h-auto" asChild>
+                  <Link to={`/post/${post.id}`}>
+                    CONTINUE READING <span aria-hidden="true">→</span>
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
         {/* Sidebar */}
         <aside className="space-y-8">
           {/* About Us Card */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-bold mb-4">About Us</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique.
-              Vestibulum ut finibus leo. In hac habitasse platea dictumst.
-            </p>
-            <Button className="w-full bg-[#2C5AA0] hover:bg-[#234888] text-white">GET TO KNOW US</Button>
-          </div>
+          <Card>
+            <CardContent>
+              <h3 className="text-xl font-bold mb-4">About Us</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique.
+                Vestibulum ut finibus leo. In hac habitasse platea dictumst.
+              </p>
+              <Button className="w-full bg-[#2C5AA0] hover:bg-[#234888] text-white">GET TO KNOW US</Button>
+            </CardContent>
+          </Card>
 
           {/* Instagram Card */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-bold mb-4">Instagram</h3>
-            <div className="grid grid-cols-3 gap-2 mb-6">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div key={`instagram-${i + 1}`} className="aspect-square bg-gray-200 rounded overflow-hidden">
-                  <img
-                    src={`/instagram-${i + 1}.jpg`}
-                    alt={`Instagram post ${i + 1}`}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <Card>
+            <CardContent>
+              <h3 className="text-xl font-bold mb-4">Instagram</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div key={`instagram-${i + 1}`} className="aspect-square bg-gray-200 rounded overflow-hidden">
+                    <img
+                      src={`/instagram-${i + 1}.jpg`}
+                      alt={`Instagram post ${i + 1}`}
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </aside>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Badge } from '@/shared/ui/components/atoms/badge';
+
 const latestNews = [
   { id: 1, category: 'TECHNOLOGY', text: '🚀 새로운 AI 기술이 개발자 생산성을 200% 향상시킵니다' },
   { id: 2, category: 'FINANCE', text: '📈 글로벌 시장, 4분기 실적 호조로 상승세 지속' },
@@ -12,7 +14,7 @@ const latestNews = [
 const NewsTicker: React.FC = () => (
   <div className="bg-[#E9ECEF] border-t border-b border-gray-200 ">
     <div className="max-w-7xl mx-auto px-6 flex items-center gap-4 py-3 ">
-      <span className="shrink-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">NEW</span>
+      <Badge className="shrink-0 bg-blue-600 hover:bg-blue-600">NEW</Badge>
       <Swiper
         modules={[Autoplay]}
         direction="vertical"

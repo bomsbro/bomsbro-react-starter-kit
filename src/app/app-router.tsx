@@ -1,4 +1,4 @@
-import { createBrowserRouter, Link, Navigate, Outlet, RouterProvider } from 'react-router';
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router';
 
 import AboutView from '@/features/about/about-view';
 import BlogCreateView from '@/features/blog/components/views/blog-create-view';
@@ -6,6 +6,7 @@ import BlogDetailView from '@/features/blog/components/views/blog-detail-view';
 import BlogEditView from '@/features/blog/components/views/blog-edit-view';
 import BlogView from '@/features/blog/components/views/blog-view';
 import HomeView from '@/features/home/home-view';
+import { Button } from '@/shared/ui/components/atoms/button';
 import Layout from '@/shared/ui/components/layout/layout';
 
 const NotFoundPage = () => (
@@ -13,9 +14,9 @@ const NotFoundPage = () => (
     <div className="text-center space-y-4">
       <h1 className="text-6xl font-bold">404</h1>
       <p className="text-xl text-muted-foreground">Page Not Found</p>
-      <Link to="/" className="text-primary hover:underline">
-        Go Home
-      </Link>
+      <Button variant="link" asChild>
+        <a href="/">Go Home</a>
+      </Button>
     </div>
   </div>
 );
