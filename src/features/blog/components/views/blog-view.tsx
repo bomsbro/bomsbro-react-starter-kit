@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 
 import { Plus } from 'lucide-react';
 
+import { Button } from '@/shared/ui/components/atoms/button';
+import { Spinner } from '@/shared/ui/components/atoms/spinner';
+
 import { useBlogsQuery } from '../../hooks/use-blog-queries';
 import BlogList from '../blog-list';
 
@@ -31,14 +34,14 @@ const BlogView: React.FC = () => {
           <ul className="flex items-center justify-center gap-8 py-4 flex-wrap">
             {CATEGORIES.map((category) => (
               <li key={category}>
-                <button
+                <Button
+                  variant="ghost"
+                  size="sm"
                   onClick={() => handleCategoryChange(category)}
-                  className={`text-sm font-semibold tracking-wide transition-colors ${
-                    selectedCategory === category ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-                  }`}
+                  className={selectedCategory === category ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}
                 >
                   {category}
-                </button>
+                </Button>
               </li>
             ))}
           </ul>
@@ -47,17 +50,16 @@ const BlogView: React.FC = () => {
 
       <div className="max-w-3xl mx-auto px-6 py-8">
         <div className="flex justify-end mb-4">
-          <Link
-            to="/blog/new"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
-          >
-            <Plus className="w-4 h-4" />새 글 작성
-          </Link>
+          <Button asChild>
+            <Link to="/blog/new">
+              <Plus className="w-4 h-4" />새 글 작성
+            </Link>
+          </Button>
         </div>
 
         {isLoading && (
           <div className="flex justify-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" />
+            <Spinner className="size-8" />
           </div>
         )}
 

@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 import type { Blog } from '@core/api';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import { Badge } from '@/shared/ui/components/atoms/badge';
+import { Button } from '@/shared/ui/components/atoms/button';
+
 interface BlogListProps {
   blogs: Blog[];
   total: number;
@@ -21,7 +24,9 @@ const BlogListItem = ({ blog }: { blog: Blog }) => (
     <article className="flex gap-6 py-6 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors -mx-4 px-4 rounded-lg">
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-medium text-gray-500">{blog.category}</span>
+          <Badge variant="secondary" className="text-xs">
+            {blog.category}
+          </Badge>
         </div>
 
         <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">{blog.title}</h3>
@@ -84,26 +89,26 @@ const BlogPagination = ({
 
   return (
     <nav className="flex items-center justify-center gap-1 mt-8">
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="이전 페이지"
       >
         <ChevronLeft className="w-5 h-5" />
-      </button>
+      </Button>
 
       {getPageNumbers().map((page) =>
         typeof page.value === 'number' ? (
-          <button
+          <Button
             key={page.key}
+            variant={currentPage === page.value ? 'default' : 'ghost'}
+            size="icon"
             onClick={() => onPageChange(page.value as number)}
-            className={`min-w-[40px] h-10 rounded-lg text-sm font-medium transition-colors ${
-              currentPage === page.value ? 'bg-gray-900 text-white' : 'hover:bg-gray-100 text-gray-700'
-            }`}
           >
             {page.value}
-          </button>
+          </Button>
         ) : (
           <span key={page.key} className="px-2 text-gray-400">
             {page.value}
@@ -111,14 +116,15 @@ const BlogPagination = ({
         ),
       )}
 
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="다음 페이지"
       >
         <ChevronRight className="w-5 h-5" />
-      </button>
+      </Button>
     </nav>
   );
 };

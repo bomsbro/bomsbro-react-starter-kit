@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 import type { BlogRequest } from '@core/api';
 import { ArrowLeft } from 'lucide-react';
 
+import { Button } from '@/shared/ui/components/atoms/button';
+
 import { useCreateBlogMutation } from '../../hooks/use-blog-queries';
 import BlogForm from '../blog-form';
 
@@ -27,13 +29,10 @@ const BlogCreateView = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-8">
-      <button
-        onClick={() => navigate('/blog')}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
-      >
+      <Button variant="ghost" onClick={() => navigate('/blog')} className="mb-6 -ml-4">
         <ArrowLeft className="w-4 h-4" />
         목록으로
-      </button>
+      </Button>
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">새 글 작성</h1>

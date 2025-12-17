@@ -3,6 +3,9 @@ import { useNavigate, useParams } from 'react-router';
 import type { BlogRequest } from '@core/api';
 import { ArrowLeft } from 'lucide-react';
 
+import { Button } from '@/shared/ui/components/atoms/button';
+import { Spinner } from '@/shared/ui/components/atoms/spinner';
+
 import { useBlogQuery, useUpdateBlogMutation } from '../../hooks/use-blog-queries';
 import BlogForm from '../blog-form';
 
@@ -33,7 +36,7 @@ const BlogEditView = () => {
     return (
       <div className="max-w-3xl mx-auto px-6 py-12">
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" />
+          <Spinner className="size-8" />
         </div>
       </div>
     );
@@ -44,9 +47,9 @@ const BlogEditView = () => {
       <div className="max-w-3xl mx-auto px-6 py-12">
         <div className="text-center py-12">
           <p className="text-red-500 mb-4">글을 찾을 수 없습니다.</p>
-          <button onClick={() => navigate('/blog')} className="text-blue-600 hover:underline">
+          <Button variant="link" onClick={() => navigate('/blog')}>
             목록으로 돌아가기
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -54,13 +57,10 @@ const BlogEditView = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-8">
-      <button
-        onClick={() => navigate(`/blog/${blogId}`)}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
-      >
+      <Button variant="ghost" onClick={() => navigate(`/blog/${blogId}`)} className="mb-6 -ml-4">
         <ArrowLeft className="w-4 h-4" />
         돌아가기
-      </button>
+      </Button>
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">글 수정</h1>

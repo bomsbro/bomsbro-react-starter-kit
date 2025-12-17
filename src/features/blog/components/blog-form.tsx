@@ -2,6 +2,10 @@ import { useState } from 'react';
 
 import type { BlogRequest } from '@core/api';
 
+import { Button } from '@/shared/ui/components/atoms/button';
+import { Input } from '@/shared/ui/components/atoms/input';
+import { Label } from '@/shared/ui/components/atoms/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/components/atoms/select';
 import { TiptapEditor } from '@/shared/ui/components/editor';
 
 const CATEGORIES = ['TECHNOLOGY', 'AUTOMOTIVE', 'FINANCE', 'POLITICS', 'CULTURE', 'SPORTS'];
@@ -40,88 +44,73 @@ const BlogForm = ({ initialData, onSubmit, onCancel, isSubmitting = false, submi
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-          제목 <span className="text-red-500">*</span>
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="title">
+          제목 <span className="text-destructive">*</span>
+        </Label>
+        <Input
           type="text"
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="제목을 입력하세요"
         />
       </div>
 
-      <div>
-        <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-          카테고리
-        </label>
-        <select
-          id="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        >
-          {CATEGORIES.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
+      <div className="space-y-2">
+        <Label htmlFor="category">카테고리</Label>
+        <Select value={category} onValueChange={setCategory}>
+          <SelectTrigger id="category" className="w-full">
+            <SelectValue placeholder="카테고리 선택" />
+          </SelectTrigger>
+          <SelectContent>
+            {CATEGORIES.map((cat) => (
+              <SelectItem key={cat} value={cat}>
+                {cat}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
-      <div>
-        <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
-          작성자 <span className="text-red-500">*</span>
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="author">
+          작성자 <span className="text-destructive">*</span>
+        </Label>
+        <Input
           type="text"
           id="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="작성자 이름"
         />
       </div>
 
-      <div>
-        <label htmlFor="thumbnail" className="block text-sm font-medium text-gray-700 mb-2">
-          썸네일 URL
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="thumbnail">썸네일 URL</Label>
+        <Input
           type="url"
           id="thumbnail"
           value={thumbnail}
           onChange={(e) => setThumbnail(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="https://example.com/image.jpg"
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          내용 <span className="text-red-500">*</span>
-        </label>
+      <div className="space-y-2">
+        <Label>
+          내용 <span className="text-destructive">*</span>
+        </Label>
         <TiptapEditor content={content} onChange={setContent} placeholder="블로그 내용을 작성하세요..." />
       </div>
 
       <div className="flex justify-end gap-3 pt-4">
-        <button
-          type="button"
-          onClick={onCancel}
-          className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
-        >
+        <Button type="button" variant="outline" onClick={onCancel}>
           취소
-        </button>
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
+        </Button>
+        <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? '저장 중...' : submitLabel}
-        </button>
+        </Button>
       </div>
     </form>
   );
