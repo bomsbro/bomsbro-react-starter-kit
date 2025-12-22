@@ -34,7 +34,7 @@ const BlogEditView = () => {
 
   if (isLoading) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <div className="mx-auto max-w-3xl px-6 py-12">
         <div className="flex justify-center py-12">
           <Spinner className="size-8" />
         </div>
@@ -44,9 +44,9 @@ const BlogEditView = () => {
 
   if (isError || !blog) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-12">
-        <div className="text-center py-12">
-          <p className="text-red-500 mb-4">글을 찾을 수 없습니다.</p>
+      <div className="mx-auto max-w-3xl px-6 py-12">
+        <div className="py-12 text-center">
+          <p className="mb-4 text-red-500">글을 찾을 수 없습니다.</p>
           <Button variant="link" onClick={() => navigate('/blog')}>
             목록으로 돌아가기
           </Button>
@@ -56,9 +56,9 @@ const BlogEditView = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-8">
+    <div className="mx-auto max-w-3xl px-6 py-8">
       <Button variant="ghost" onClick={() => navigate(`/blog/${blogId}`)} className="mb-6 -ml-4">
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft className="h-4 w-4" />
         돌아가기
       </Button>
 

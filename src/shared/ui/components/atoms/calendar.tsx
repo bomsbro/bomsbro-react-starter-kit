@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { type DayButton,DayPicker, getDefaultClassNames } from 'react-day-picker';
+import { type DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
 
 import { Button, buttonVariants } from '@ui/components/atoms/button';
 import { cn } from '@ui/lib/utils';
@@ -99,7 +99,9 @@ const Calendar = ({
         ...classNames,
       }}
       components={{
-        Root: ({ className, rootRef, ...props }) => <div data-slot="calendar" ref={rootRef} className={cn(className)} {...props} />,
+        Root: ({ className, rootRef, ...props }) => (
+          <div data-slot="calendar" ref={rootRef} className={cn(className)} {...props} />
+        ),
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === 'left') {
             return <ChevronLeftIcon className={cn('size-4', className)} {...props} />;
@@ -113,16 +115,16 @@ const Calendar = ({
         },
         DayButton: CalendarDayButton,
         WeekNumber: ({ children, ...props }) => (
-            <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">{children}</div>
-            </td>
-          ),
+          <td {...props}>
+            <div className="flex size-(--cell-size) items-center justify-center text-center">{children}</div>
+          </td>
+        ),
         ...components,
       }}
       {...props}
     />
   );
-}
+};
 
 const CalendarDayButton = ({ className, day, modifiers, ...props }: React.ComponentProps<typeof DayButton>) => {
   const defaultClassNames = getDefaultClassNames();
@@ -152,6 +154,6 @@ const CalendarDayButton = ({ className, day, modifiers, ...props }: React.Compon
       {...props}
     />
   );
-}
+};
 
 export { Calendar, CalendarDayButton };

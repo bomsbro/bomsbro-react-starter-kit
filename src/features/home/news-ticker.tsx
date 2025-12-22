@@ -12,8 +12,8 @@ const latestNews = [
 ];
 
 const NewsTicker: React.FC = () => (
-  <div className="bg-[#E9ECEF] border-t border-b border-gray-200 ">
-    <div className="max-w-7xl mx-auto px-6 flex items-center gap-4 py-3 ">
+  <div className="border-t border-b border-gray-200 bg-[#E9ECEF]">
+    <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 py-3">
       <Badge className="shrink-0 bg-blue-600 hover:bg-blue-600">NEW</Badge>
       <Swiper
         modules={[Autoplay]}
@@ -29,9 +29,9 @@ const NewsTicker: React.FC = () => (
           <SwiperSlide key={news.id}>
             <a
               href={`#${news.category.toLowerCase()}`}
-              className="flex items-center gap-2 text-sm font-medium hover:text-blue-600 transition-colors truncate"
+              className="flex items-center gap-2 truncate text-sm font-medium transition-colors hover:text-blue-600"
             >
-              <span className="text-xs text-blue-600 font-semibold shrink-0">[{news.category}]</span>
+              <span className="shrink-0 text-xs font-semibold text-blue-600">[{news.category}]</span>
               <span className="truncate">{news.text}</span>
             </a>
           </SwiperSlide>

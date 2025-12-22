@@ -55,6 +55,6 @@ const Button = ({
       {...props}
     />
   );
-}
+};
 
 export { Button, buttonVariants };

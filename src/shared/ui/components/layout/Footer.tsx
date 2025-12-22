@@ -5,38 +5,38 @@ import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/shared/ui/components/atoms/button';
 
 const Footer: React.FC = () => (
-  <footer className="bg-[#2C4E9C] text-white mt-16">
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+  <footer className="mt-16 bg-[#2C4E9C] text-white">
+    <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
         {/* About Column */}
         <div>
-          <h3 className="text-lg font-bold mb-4">About</h3>
-          <p className="text-sm text-white/80 leading-relaxed">
+          <h3 className="mb-4 text-lg font-bold">About</h3>
+          <p className="text-sm leading-relaxed text-white/80">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique.
           </p>
         </div>
 
         {/* Quick Links Column */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+          <h3 className="mb-4 text-lg font-bold">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link to="/shop" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/shop" className="text-white/80 transition-colors hover:text-white">
                 Shop
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/about" className="text-white/80 transition-colors hover:text-white">
                 About
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/contact" className="text-white/80 transition-colors hover:text-white">
                 Contact
               </Link>
             </li>
             <li>
-              <Link to="/privacy" className="text-white/80 hover:text-white transition-colors">
+              <Link to="/privacy" className="text-white/80 transition-colors hover:text-white">
                 Privacy Policy
               </Link>
             </li>
@@ -45,26 +45,26 @@ const Footer: React.FC = () => (
 
         {/* Social Column */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Follow Us</h3>
+          <h3 className="mb-4 text-lg font-bold">Follow Us</h3>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon-sm" className="text-white hover:bg-white/10" asChild>
               <a href="#" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
+                <Facebook className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon-sm" className="text-white hover:bg-white/10" asChild>
               <a href="#" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon-sm" className="text-white hover:bg-white/10" asChild>
               <a href="#" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
+                <Twitter className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon-sm" className="text-white hover:bg-white/10" asChild>
               <a href="#" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </Button>
           </div>

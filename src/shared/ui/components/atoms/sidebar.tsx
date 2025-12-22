@@ -78,7 +78,10 @@ const SidebarProvider = ({
   );
 
   // Helper to toggle the sidebar.
-  const toggleSidebar = React.useCallback(() => isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open), [isMobile, setOpen, setOpenMobile]);
+  const toggleSidebar = React.useCallback(
+    () => (isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open)),
+    [isMobile, setOpen, setOpenMobile],
+  );
 
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
@@ -130,7 +133,7 @@ const SidebarProvider = ({
       </TooltipProvider>
     </SidebarContext.Provider>
   );
-}
+};
 
 const Sidebar = ({
   side = 'left',
@@ -229,7 +232,7 @@ const Sidebar = ({
       </div>
     </div>
   );
-}
+};
 
 const SidebarTrigger = ({ className, onClick, ...props }: React.ComponentProps<typeof Button>) => {
   const { toggleSidebar } = useSidebar();
@@ -251,7 +254,7 @@ const SidebarTrigger = ({ className, onClick, ...props }: React.ComponentProps<t
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
-}
+};
 
 const SidebarRail = ({ className, ...props }: React.ComponentProps<'button'>) => {
   const { toggleSidebar } = useSidebar();
@@ -276,76 +279,76 @@ const SidebarRail = ({ className, ...props }: React.ComponentProps<'button'>) =>
       {...props}
     />
   );
-}
+};
 
 const SidebarInset = ({ className, ...props }: React.ComponentProps<'main'>) => (
-    <main
-      data-slot="sidebar-inset"
-      className={cn(
-        'bg-background relative flex w-full flex-1 flex-col',
-        'md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2',
-        className,
-      )}
-      {...props}
-    />
-  )
+  <main
+    data-slot="sidebar-inset"
+    className={cn(
+      'bg-background relative flex w-full flex-1 flex-col',
+      'md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2',
+      className,
+    )}
+    {...props}
+  />
+);
 
 const SidebarInput = ({ className, ...props }: React.ComponentProps<typeof Input>) => (
-    <Input
-      data-slot="sidebar-input"
-      data-sidebar="input"
-      className={cn('bg-background h-8 w-full shadow-none', className)}
-      {...props}
-    />
-  )
+  <Input
+    data-slot="sidebar-input"
+    data-sidebar="input"
+    className={cn('bg-background h-8 w-full shadow-none', className)}
+    {...props}
+  />
+);
 
 const SidebarHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-header"
-      data-sidebar="header"
-      className={cn('flex flex-col gap-2 p-2', className)}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-header"
+    data-sidebar="header"
+    className={cn('flex flex-col gap-2 p-2', className)}
+    {...props}
+  />
+);
 
 const SidebarFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-footer"
-      data-sidebar="footer"
-      className={cn('flex flex-col gap-2 p-2', className)}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-footer"
+    data-sidebar="footer"
+    className={cn('flex flex-col gap-2 p-2', className)}
+    {...props}
+  />
+);
 
 const SidebarSeparator = ({ className, ...props }: React.ComponentProps<typeof Separator>) => (
-    <Separator
-      data-slot="sidebar-separator"
-      data-sidebar="separator"
-      className={cn('bg-sidebar-border mx-2 w-auto', className)}
-      {...props}
-    />
-  )
+  <Separator
+    data-slot="sidebar-separator"
+    data-sidebar="separator"
+    className={cn('bg-sidebar-border mx-2 w-auto', className)}
+    {...props}
+  />
+);
 
 const SidebarContent = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-content"
-      data-sidebar="content"
-      className={cn(
-        'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
-        className,
-      )}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-content"
+    data-sidebar="content"
+    className={cn(
+      'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+      className,
+    )}
+    {...props}
+  />
+);
 
 const SidebarGroup = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-group"
-      data-sidebar="group"
-      className={cn('relative flex w-full min-w-0 flex-col p-2', className)}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-group"
+    data-sidebar="group"
+    className={cn('relative flex w-full min-w-0 flex-col p-2', className)}
+    {...props}
+  />
+);
 
 const SidebarGroupLabel = ({
   className,
@@ -366,7 +369,7 @@ const SidebarGroupLabel = ({
       {...props}
     />
   );
-}
+};
 
 const SidebarGroupAction = ({
   className,
@@ -389,34 +392,34 @@ const SidebarGroupAction = ({
       {...props}
     />
   );
-}
+};
 
 const SidebarGroupContent = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-group-content"
-      data-sidebar="group-content"
-      className={cn('w-full text-sm', className)}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-group-content"
+    data-sidebar="group-content"
+    className={cn('w-full text-sm', className)}
+    {...props}
+  />
+);
 
 const SidebarMenu = ({ className, ...props }: React.ComponentProps<'ul'>) => (
-    <ul
-      data-slot="sidebar-menu"
-      data-sidebar="menu"
-      className={cn('flex w-full min-w-0 flex-col gap-1', className)}
-      {...props}
-    />
-  )
+  <ul
+    data-slot="sidebar-menu"
+    data-sidebar="menu"
+    className={cn('flex w-full min-w-0 flex-col gap-1', className)}
+    {...props}
+  />
+);
 
 const SidebarMenuItem = ({ className, ...props }: React.ComponentProps<'li'>) => (
-    <li
-      data-slot="sidebar-menu-item"
-      data-sidebar="menu-item"
-      className={cn('group/menu-item relative', className)}
-      {...props}
-    />
-  )
+  <li
+    data-slot="sidebar-menu-item"
+    data-sidebar="menu-item"
+    className={cn('group/menu-item relative', className)}
+    {...props}
+  />
+);
 
 const sidebarMenuButtonVariants = cva(
   'peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0',
@@ -479,7 +482,7 @@ const SidebarMenuButton = ({
       <TooltipContent side="right" align="center" hidden={state !== 'collapsed' || isMobile} {...tooltipProps} />
     </Tooltip>
   );
-}
+};
 
 const SidebarMenuAction = ({
   className,
@@ -511,24 +514,24 @@ const SidebarMenuAction = ({
       {...props}
     />
   );
-}
+};
 
 const SidebarMenuBadge = ({ className, ...props }: React.ComponentProps<'div'>) => (
-    <div
-      data-slot="sidebar-menu-badge"
-      data-sidebar="menu-badge"
-      className={cn(
-        'text-sidebar-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none',
-        'peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground',
-        'peer-data-[size=sm]/menu-button:top-1',
-        'peer-data-[size=default]/menu-button:top-1.5',
-        'peer-data-[size=lg]/menu-button:top-2.5',
-        'group-data-[collapsible=icon]:hidden',
-        className,
-      )}
-      {...props}
-    />
-  )
+  <div
+    data-slot="sidebar-menu-badge"
+    data-sidebar="menu-badge"
+    className={cn(
+      'text-sidebar-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none',
+      'peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground',
+      'peer-data-[size=sm]/menu-button:top-1',
+      'peer-data-[size=default]/menu-button:top-1.5',
+      'peer-data-[size=lg]/menu-button:top-2.5',
+      'group-data-[collapsible=icon]:hidden',
+      className,
+    )}
+    {...props}
+  />
+);
 
 const getRandomWidth = () => `${Math.floor(Math.random() * 40) + 50}%`;
 
@@ -561,29 +564,29 @@ const SidebarMenuSkeleton = ({
       />
     </div>
   );
-}
+};
 
 const SidebarMenuSub = ({ className, ...props }: React.ComponentProps<'ul'>) => (
-    <ul
-      data-slot="sidebar-menu-sub"
-      data-sidebar="menu-sub"
-      className={cn(
-        'border-sidebar-border mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l px-2.5 py-0.5',
-        'group-data-[collapsible=icon]:hidden',
-        className,
-      )}
-      {...props}
-    />
-  )
+  <ul
+    data-slot="sidebar-menu-sub"
+    data-sidebar="menu-sub"
+    className={cn(
+      'border-sidebar-border mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l px-2.5 py-0.5',
+      'group-data-[collapsible=icon]:hidden',
+      className,
+    )}
+    {...props}
+  />
+);
 
 const SidebarMenuSubItem = ({ className, ...props }: React.ComponentProps<'li'>) => (
-    <li
-      data-slot="sidebar-menu-sub-item"
-      data-sidebar="menu-sub-item"
-      className={cn('group/menu-sub-item relative', className)}
-      {...props}
-    />
-  )
+  <li
+    data-slot="sidebar-menu-sub-item"
+    data-sidebar="menu-sub-item"
+    className={cn('group/menu-sub-item relative', className)}
+    {...props}
+  />
+);
 
 const SidebarMenuSubButton = ({
   asChild = false,
@@ -615,7 +618,7 @@ const SidebarMenuSubButton = ({
       {...props}
     />
   );
-}
+};
 
 export {
   Sidebar,

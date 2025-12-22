@@ -10,10 +10,10 @@ import { Button } from '@/shared/ui/components/atoms/button';
 import Layout from '@/shared/ui/components/layout/layout';
 
 const NotFoundPage = () => (
-  <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
-    <div className="text-center space-y-4">
+  <div className="flex min-h-[calc(100vh-8rem)] items-center justify-center">
+    <div className="space-y-4 text-center">
       <h1 className="text-6xl font-bold">404</h1>
-      <p className="text-xl text-muted-foreground">Page Not Found</p>
+      <p className="text-muted-foreground text-xl">Page Not Found</p>
       <Button variant="link" asChild>
         <a href="/">Go Home</a>
       </Button>

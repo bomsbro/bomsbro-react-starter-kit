@@ -21,17 +21,17 @@ const formatDate = (dateString: string) => {
 
 const BlogListItem = ({ blog }: { blog: Blog }) => (
   <Link to={`/blog/${blog.id}`} className="block">
-    <article className="flex gap-6 py-6 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors -mx-4 px-4 rounded-lg">
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-2">
+    <article className="-mx-4 flex gap-6 rounded-lg border-b border-gray-200 px-4 py-6 transition-colors last:border-b-0 hover:bg-gray-50">
+      <div className="min-w-0 flex-1">
+        <div className="mb-2 flex items-center gap-2">
           <Badge variant="secondary" className="text-xs">
             {blog.category}
           </Badge>
         </div>
 
-        <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">{blog.title}</h3>
+        <h3 className="mb-2 line-clamp-2 text-lg font-bold text-gray-900">{blog.title}</h3>
 
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{blog.content}</p>
+        <p className="mb-3 line-clamp-2 text-sm text-gray-600">{blog.content}</p>
 
         <div className="flex items-center gap-3 text-xs text-gray-400">
           <span>{blog.author}</span>
@@ -42,7 +42,7 @@ const BlogListItem = ({ blog }: { blog: Blog }) => (
 
       {blog.thumbnail && (
         <div className="flex-shrink-0">
-          <img src={blog.thumbnail} alt={blog.title} className="w-32 h-24 object-cover rounded-lg" />
+          <img src={blog.thumbnail} alt={blog.title} className="h-24 w-32 rounded-lg object-cover" />
         </div>
       )}
     </article>
@@ -88,7 +88,7 @@ const BlogPagination = ({
   };
 
   return (
-    <nav className="flex items-center justify-center gap-1 mt-8">
+    <nav className="mt-8 flex items-center justify-center gap-1">
       <Button
         variant="ghost"
         size="icon"
@@ -96,7 +96,7 @@ const BlogPagination = ({
         disabled={currentPage === 1}
         aria-label="이전 페이지"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="h-5 w-5" />
       </Button>
 
       {getPageNumbers().map((page) =>
@@ -123,7 +123,7 @@ const BlogPagination = ({
         disabled={currentPage === totalPages}
         aria-label="다음 페이지"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="h-5 w-5" />
       </Button>
     </nav>
   );
@@ -134,7 +134,7 @@ const BlogList = ({ blogs, total, currentPage, totalPages, onPageChange }: BlogL
     <div className="mb-4 text-sm text-gray-500">총 {total}개의 글</div>
 
     {blogs.length === 0 ? (
-      <div className="text-center py-12 text-gray-500">게시글이 없습니다.</div>
+      <div className="py-12 text-center text-gray-500">게시글이 없습니다.</div>
     ) : (
       <div className="divide-y divide-gray-200">
         {blogs.map((blog) => (

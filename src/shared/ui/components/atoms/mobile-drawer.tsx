@@ -14,9 +14,9 @@ interface MobileDrawerProps {
 }
 
 const iconMap: Record<string, ReactNode> = {
-  HOME: <Home className="w-4 h-4" />,
-  BLOG: <FileText className="w-4 h-4" />,
-  ABOUT: <Info className="w-4 h-4" />,
+  HOME: <Home className="h-4 w-4" />,
+  BLOG: <FileText className="h-4 w-4" />,
+  ABOUT: <Info className="h-4 w-4" />,
 };
 
 const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
@@ -32,44 +32,44 @@ const MobileDrawer = ({ navLinks }: MobileDrawerProps) => {
       <Button
         variant="ghost"
         size="icon"
-        className="md:hidden text-white hover:bg-white/10"
+        className="text-white hover:bg-white/10 md:hidden"
         onClick={() => setIsOpen(true)}
       >
-        <Menu className="w-6 h-6" />
+        <Menu className="h-6 w-6" />
       </Button>
 
       {/* Overlay */}
-      {isOpen && <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsOpen(false)} />}
+      {isOpen && <div className="fixed inset-0 z-40 bg-black/50 md:hidden" onClick={() => setIsOpen(false)} />}
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 bg-gray-50 shadow-xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 z-50 h-full w-80 transform bg-gray-50 shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex h-full flex-col">
           {/* Drawer Header */}
-          <div className="flex items-center justify-between p-4 bg-white border-b">
+          <div className="flex items-center justify-between border-b bg-white p-4">
             <h2 className="text-xl font-bold text-gray-800">Menu</h2>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-              <X className="w-6 h-6" />
+              <X className="h-6 w-6" />
             </Button>
           </div>
 
           {/* Drawer Content */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
             {/* Apps Section */}
-            <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col gap-2">
+            <div className="flex flex-col gap-2 overflow-hidden rounded-xl border border-gray-100 bg-white p-2 shadow-sm">
               <h3 className="text-sm font-bold text-gray-800">Apps</h3>
-              <div className="flex bg-white align-center">
+              <div className="align-center flex bg-white">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="flex h-10 items-center gap-3 p-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    className="flex h-10 items-center gap-3 rounded-lg p-3 text-sm text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-600"
                     onClick={handleLinkClick}
                   >
-                    {iconMap[link.label] ?? <span className="w-4 h-4" />}
+                    {iconMap[link.label] ?? <span className="h-4 w-4" />}
                   </Link>
                 ))}
               </div>

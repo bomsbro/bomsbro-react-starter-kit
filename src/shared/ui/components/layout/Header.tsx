@@ -18,14 +18,14 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ navLinks = defaultNavLinks }) => (
-  <nav className="bg-[#2C4E9C] ">
-    <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+  <nav className="bg-[#2C4E9C]">
+    <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <div className="flex items-center gap-8 text-white">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             to={link.href}
-            className="hidden md:block text-sm font-medium tracking-wider hover:opacity-80 transition-opacity"
+            className="hidden text-sm font-medium tracking-wider transition-opacity hover:opacity-80 md:block"
           >
             {link.label}
           </Link>

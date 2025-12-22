@@ -37,15 +37,15 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
   }
 
   return (
-    <div className="border border-input rounded-lg overflow-hidden">
-      <div className="flex items-center gap-1 p-2 border-b bg-muted/50 flex-wrap">
+    <div className="border-input overflow-hidden rounded-lg border">
+      <div className="bg-muted/50 flex flex-wrap items-center gap-1 border-b p-2">
         <Toggle
           size="sm"
           pressed={editor.isActive('bold')}
           onPressedChange={() => editor.chain().focus().toggleBold().run()}
           aria-label="굵게"
         >
-          <Bold className="w-4 h-4" />
+          <Bold className="h-4 w-4" />
         </Toggle>
         <Toggle
           size="sm"
@@ -53,7 +53,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleItalic().run()}
           aria-label="기울임"
         >
-          <Italic className="w-4 h-4" />
+          <Italic className="h-4 w-4" />
         </Toggle>
         <Toggle
           size="sm"
@@ -61,7 +61,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleStrike().run()}
           aria-label="취소선"
         >
-          <Strikethrough className="w-4 h-4" />
+          <Strikethrough className="h-4 w-4" />
         </Toggle>
 
         <Separator orientation="vertical" className="mx-1 h-6" />
@@ -72,7 +72,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           aria-label="제목 1"
         >
-          <Heading1 className="w-4 h-4" />
+          <Heading1 className="h-4 w-4" />
         </Toggle>
         <Toggle
           size="sm"
@@ -80,7 +80,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           aria-label="제목 2"
         >
-          <Heading2 className="w-4 h-4" />
+          <Heading2 className="h-4 w-4" />
         </Toggle>
 
         <Separator orientation="vertical" className="mx-1 h-6" />
@@ -91,7 +91,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleBulletList().run()}
           aria-label="글머리 기호"
         >
-          <List className="w-4 h-4" />
+          <List className="h-4 w-4" />
         </Toggle>
         <Toggle
           size="sm"
@@ -99,7 +99,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().toggleOrderedList().run()}
           aria-label="번호 매기기"
         >
-          <ListOrdered className="w-4 h-4" />
+          <ListOrdered className="h-4 w-4" />
         </Toggle>
 
         <Separator orientation="vertical" className="mx-1 h-6" />
@@ -110,7 +110,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().undo().run()}
           aria-label="실행 취소"
         >
-          <Undo className="w-4 h-4" />
+          <Undo className="h-4 w-4" />
         </Toggle>
         <Toggle
           size="sm"
@@ -118,7 +118,7 @@ const TiptapEditor = ({ content, onChange, placeholder = '내용을 입력하세
           onPressedChange={() => editor.chain().focus().redo().run()}
           aria-label="다시 실행"
         >
-          <Redo className="w-4 h-4" />
+          <Redo className="h-4 w-4" />
         </Toggle>
       </div>
 

@@ -29,9 +29,9 @@ const BlogView: React.FC = () => {
 
   return (
     <>
-      <nav className="bg-[#E9ECEF] border-t border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <ul className="flex items-center justify-center gap-8 py-4 flex-wrap">
+      <nav className="border-t border-b border-gray-200 bg-[#E9ECEF]">
+        <div className="mx-auto max-w-7xl px-6">
+          <ul className="flex flex-wrap items-center justify-center gap-8 py-4">
             {CATEGORIES.map((category) => (
               <li key={category}>
                 <Button
@@ -48,11 +48,11 @@ const BlogView: React.FC = () => {
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-6 py-8">
-        <div className="flex justify-end mb-4">
+      <div className="mx-auto max-w-3xl px-6 py-8">
+        <div className="mb-4 flex justify-end">
           <Button asChild>
             <Link to="/blog/new">
-              <Plus className="w-4 h-4" />새 글 작성
+              <Plus className="h-4 w-4" />새 글 작성
             </Link>
           </Button>
         </div>
@@ -63,7 +63,7 @@ const BlogView: React.FC = () => {
           </div>
         )}
 
-        {isError && <div className="text-center py-12 text-red-500">데이터를 불러오는 중 오류가 발생했습니다.</div>}
+        {isError && <div className="py-12 text-center text-red-500">데이터를 불러오는 중 오류가 발생했습니다.</div>}
 
         {data && (
           <BlogList

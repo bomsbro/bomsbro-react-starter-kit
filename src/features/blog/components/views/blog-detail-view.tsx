@@ -34,7 +34,7 @@ const BlogDetailView = () => {
 
   if (isLoading) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <div className="mx-auto max-w-3xl px-6 py-12">
         <div className="flex justify-center py-12">
           <Spinner className="size-8" />
         </div>
@@ -44,9 +44,9 @@ const BlogDetailView = () => {
 
   if (isError || !blog) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-12">
-        <div className="text-center py-12">
-          <p className="text-red-500 mb-4">글을 찾을 수 없습니다.</p>
+      <div className="mx-auto max-w-3xl px-6 py-12">
+        <div className="py-12 text-center">
+          <p className="mb-4 text-red-500">글을 찾을 수 없습니다.</p>
           <Button variant="link" onClick={() => navigate('/blog')}>
             목록으로 돌아가기
           </Button>
@@ -56,19 +56,19 @@ const BlogDetailView = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-8">
+    <div className="mx-auto max-w-3xl px-6 py-8">
       <Button variant="ghost" onClick={() => navigate('/blog')} className="mb-6 -ml-4">
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft className="h-4 w-4" />
         목록으로
       </Button>
 
       <article>
         <header className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
+          <div className="mb-4 flex items-center gap-2">
             <Badge variant="secondary">{blog.category}</Badge>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{blog.title}</h1>
+          <h1 className="mb-4 text-3xl font-bold text-gray-900">{blog.title}</h1>
 
           <div className="flex items-center justify-between text-sm text-gray-500">
             <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ const BlogDetailView = () => {
 
             <div className="flex items-center gap-1">
               <Button variant="ghost" size="icon-sm" onClick={() => navigate(`/blog/${blogId}/edit`)} title="수정">
-                <Edit className="w-4 h-4" />
+                <Edit className="h-4 w-4" />
               </Button>
               <Button
                 variant="ghost"
@@ -90,7 +90,7 @@ const BlogDetailView = () => {
                 title="삭제"
                 className="hover:text-destructive hover:bg-destructive/10"
               >
-                <Trash2 className="w-4 h-4" />
+                <Trash2 className="h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -98,7 +98,7 @@ const BlogDetailView = () => {
 
         {blog.thumbnail && (
           <div className="mb-8">
-            <img src={blog.thumbnail} alt={blog.title} className="w-full h-64 object-cover rounded-lg" />
+            <img src={blog.thumbnail} alt={blog.title} className="h-64 w-full rounded-lg object-cover" />
           </div>
         )}
 

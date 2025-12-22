@@ -128,7 +128,7 @@ const Carousel = ({
       </div>
     </CarouselContext.Provider>
   );
-}
+};
 
 const CarouselContent = ({ className, ...props }: React.ComponentProps<'div'>) => {
   const { carouselRef, orientation } = useCarousel();
@@ -138,7 +138,7 @@ const CarouselContent = ({ className, ...props }: React.ComponentProps<'div'>) =
       <div className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)} {...props} />
     </div>
   );
-}
+};
 
 const CarouselItem = ({ className, ...props }: React.ComponentProps<'div'>) => {
   const { orientation } = useCarousel();
@@ -152,7 +152,7 @@ const CarouselItem = ({ className, ...props }: React.ComponentProps<'div'>) => {
       {...props}
     />
   );
-}
+};
 
 const CarouselPrevious = ({
   className,
@@ -182,7 +182,7 @@ const CarouselPrevious = ({
       <span className="sr-only">Previous slide</span>
     </Button>
   );
-}
+};
 
 const CarouselNext = ({
   className,
@@ -212,6 +212,6 @@ const CarouselNext = ({
       <span className="sr-only">Next slide</span>
     </Button>
   );
-}
+};
 
-export { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext,CarouselPrevious };
+export { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious };
